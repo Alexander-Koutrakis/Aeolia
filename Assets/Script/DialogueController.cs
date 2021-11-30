@@ -13,6 +13,8 @@ public class DialogueController : MonoBehaviour
     private int dialogueIndex;
     private Dialogue dialogue;
     [SerializeField]private Dialogue lockedDialogue;
+    [SerializeField]private Dialogue repeatItemDialogue;
+    [SerializeField] private Dialogue repeatSceneDialogue;
     private void Awake()
     {
         Instance = this;
@@ -27,7 +29,7 @@ public class DialogueController : MonoBehaviour
         this.dialogue = dialogue;
         dialoguePanel.SetActive(true);
         NextSentence();
-        InventoryPanelController.Instance.HidePanels();
+        PanelController.Instance.HidePanels();
     }
 
     public void ShowDialogueSentence(DialogueSentence dialogueSentence)
@@ -55,11 +57,21 @@ public class DialogueController : MonoBehaviour
     private void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-        InventoryPanelController.Instance.ShowPanels();
+        PanelController.Instance.ShowPanels();
     }
 
     public void StartLockedDialogue()
     {
         StartDialogue(lockedDialogue);
+    }
+
+    public void StartRepeatItemDialogue()
+    {
+        StartDialogue(repeatItemDialogue);
+    }
+
+    public void StartRepeatSceneDialogue()
+    {
+        StartDialogue(repeatSceneDialogue);
     }
 }

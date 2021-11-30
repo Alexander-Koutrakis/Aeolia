@@ -76,7 +76,7 @@ public class Focus : MonoBehaviour
     private IEnumerator DisableGameobject()
     {
         yield return null;
-        focusImage.gameObject.SetActive(false);
+        focusGameobject.SetActive(false) ;
     }
     private IEnumerator CoroutineSequence()
     {
@@ -95,8 +95,9 @@ public class Focus : MonoBehaviour
     }
     public void FocusItem(Item item)
     {
-        fadeImage.gameObject.SetActive(true);
+        focusGameobject.SetActive(true);
         focusImage.sprite = item.Sprite;
+        focusImage.preserveAspect = true;
         focusText.text = item.Name;
         CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime/2, true));
         CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, true));

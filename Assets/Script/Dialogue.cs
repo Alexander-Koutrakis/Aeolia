@@ -6,13 +6,15 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     public DialogueSentence[] Sentences;
+    public SceneData[] ScenesToUnlock;
 }
 
 [System.Serializable]
 public struct DialogueSentence {
     public string SpeakerName;
     public Sprite SpeakerSprite;
-    [TextArea]
+    [TextArea(5,20)]
     public string Text;
+   
 }
 

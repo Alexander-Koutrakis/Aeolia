@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     public Sprite Sprite;
     public string Name;
     public ItemType ItemType;
+    public Item ContainedItem;
 }
 
 public enum ItemKey { Key1,Key2,Key3}
