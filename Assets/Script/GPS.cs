@@ -21,6 +21,7 @@ public class GPS : MonoBehaviour
 
     private void ShowAvailableScenes()
     {
+        
         for(int i = 0; i < SceneNavigation.AvailableScenes.Count; i++)
         {
             GameObject newSceneGameobject = Instantiate(sceneButtonPrefab, gridLayoutGroup.transform);
@@ -30,10 +31,14 @@ public class GPS : MonoBehaviour
 
             SceneData shownScene = new SceneData();
             shownScene = SceneNavigation.AvailableScenes[i];
-            sceneButton.onClick.AddListener(delegate { SceneManager.LoadScene(shownScene.SceneName); });
+            sceneButton.onClick.AddListener(delegate { SceneLoader.Instance.LoadScene(shownScene.SceneLoaderName); });
             sceneImage.sprite = shownScene.SceneSprite;
             newSceneText.text = shownScene.SceneName;
         }
     }
 
+    public void LoadToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

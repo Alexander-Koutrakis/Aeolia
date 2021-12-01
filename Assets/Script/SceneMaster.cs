@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SceneMaster : MonoBehaviour
 {
     [SerializeField] private Dialogue startDialogue;
     private bool sceneVisited;
     [SerializeField] private string sceneName;
+    [SerializeField] private Image playerAvatar;
     private void Start()
     {
         if (startDialogue != null)
@@ -20,7 +21,13 @@ public class SceneMaster : MonoBehaviour
             {
                 DialogueController.Instance.StartRepeatSceneDialogue();
             }
-        }     
+        }
+
+        if (playerAvatar != null)
+        {
+            playerAvatar.sprite = Gamemaster.PlayerSprite;
+        }
+        
     }
 
     private void OnEnable()

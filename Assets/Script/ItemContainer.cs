@@ -58,12 +58,15 @@ public class ItemContainer : MonoBehaviour
 
     private void TryToOpen()
     {
-        if (Inventory.ItemHolding == key)
+        Debug.Log("Try to Open");
+        if (Inventory.ItemHolding != key|| Inventory.ItemHolding==null)
         {
+            Debug.Log("Wrong Key");
             DialogueController.Instance.StartLockedDialogue();
         }
         else
         {
+            Debug.Log("Correct Key");
             Focus.Instance.FocusItem(item.ContainedItem);
             Inventory.Instance.TakeItem(item.ContainedItem);
         }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -19,7 +19,7 @@ public class DialogueController : MonoBehaviour
     {
         Instance = this;
         dialogueSpeakerName = dialoguePanel.GetComponentsInChildren<TMP_Text>(true)[0];
-        dialogueText = dialoguePanel.GetComponentsInChildren<TMP_Text>(true)[1];
+        dialogueText = dialoguePanel.GetComponentsInChildren<TMP_Text>(true)[0];
         speakerImage = dialoguePanel.GetComponentsInChildren<Image>(true)[1];
     }
 
@@ -34,9 +34,17 @@ public class DialogueController : MonoBehaviour
 
     public void ShowDialogueSentence(DialogueSentence dialogueSentence)
     {      
-        dialogueSpeakerName.text = dialogueSentence.SpeakerName;
+       // dialogueSpeakerName.text = dialogueSentence.SpeakerName;
         dialogueText.text = dialogueSentence.Text;
-        speakerImage.sprite = dialogueSentence.SpeakerSprite;
+        if (dialogueSentence.SpeakerName == "Δημοσιογράφος")
+        {
+            speakerImage.sprite = Gamemaster.PlayerPortraitSprite;
+        }
+        else
+        {
+            speakerImage.sprite = dialogueSentence.SpeakerSprite;
+        }
+        
         
     }
 

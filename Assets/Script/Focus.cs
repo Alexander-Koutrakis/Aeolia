@@ -99,14 +99,19 @@ public class Focus : MonoBehaviour
         focusImage.sprite = item.Sprite;
         focusImage.preserveAspect = true;
         focusText.text = item.Name;
-        CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime/2, true));
-        CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, true));
-        StarCoroutineSequence();
+
+        StartCoroutine(FadeCanvasGroup(fadingTime, true));
+        StartCoroutine(ScaleFocusImage(fadingTime, true));
+        //CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime/2, true));
+       // CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, true));
+       // StarCoroutineSequence();
     }
     public void UnFocusItem()
     {
-        CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, false));
-        CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime, false));
+        StartCoroutine(ScaleFocusImage(fadingTime, false));
+        StartCoroutine(FadeCanvasGroup(fadingTime, false));
+        //CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, false));
+        //CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime, false));
         CoroutineStack.Enqueue(DisableGameobject());
         StarCoroutineSequence();
     }

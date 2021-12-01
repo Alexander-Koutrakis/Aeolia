@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 51976cb9c84a9fc4aba674b5db8be925
+  - enabled: 1
     path: Assets/Scenes/Aivali.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Car.unity
+    guid: b648175b5de19784cafaa058c1019460
   m_configObjects: {}

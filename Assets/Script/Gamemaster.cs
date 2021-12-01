@@ -6,9 +6,12 @@ public class Gamemaster : MonoBehaviour
 {
     public static Gamemaster Instance;
     public static SavedGame SavedGame;
-
+    public static PlayerGender PlayerGender;
+    public static Sprite PlayerPortraitSprite;
+    public static Sprite PlayerSprite;
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         Instance = this;
         SaveSystem.Delete_Save();
         if (SaveSystem.LoadGame() != null)
@@ -30,3 +33,5 @@ public class Gamemaster : MonoBehaviour
     }
 
 }
+[System.Serializable]
+public enum PlayerGender { Male,Female}

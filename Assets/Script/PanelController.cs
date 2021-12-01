@@ -8,7 +8,8 @@ public class PanelController : MonoBehaviour
     [SerializeField]private RectTransform inventoryPanel;
     [SerializeField] private RectTransform gpsPanel;
     [SerializeField]private RectTransform buttonPanel;
-  
+    [SerializeField] private Button openInventoryButton;
+    [SerializeField] private Button gPSButton;
     private bool moving = false;
     public static PanelController Instance;
 
@@ -49,46 +50,57 @@ public class PanelController : MonoBehaviour
         panel.anchoredPosition = targetLocation;
         moving = false;
     }
-    private void CenterPosition(RectTransform panel)
+    public void CenterPosition(RectTransform panel)
     {
         panel.gameObject.SetActive(true);
         StartCoroutine(MovePanel(panel, Vector2.zero, 0.5f));
     }
-    private void RightHidePosition(RectTransform panel)
+    public void RightHidePosition(RectTransform panel)
     {
         Vector2 hideposition = new Vector2(panel.rect.width, 0);
         StartCoroutine(MovePanel(panel, hideposition, 0.5f,true));
     }
-    public void InventoryButton()
+    public void OpenInventory()
     {
         if (moving)
         {
             return;
-        }
-        if (inventoryPanel.anchoredPosition.x == 0)
-        {
-            RightHidePosition(inventoryPanel);
-        }
-        else
-        {
+        }      
             CenterPosition(inventoryPanel);
-        }
+            RightHidePosition(gpsPanel);
+        openInventoryButton.interactable = false;
+        gPSButton.interactable = true;
     }
-
-    public void GPSButton()
+    public void CloseInventory()
     {
         if (moving)
         {
             return;
         }
-        if (gpsPanel.anchoredPosition.x == 0)
+        RightHidePosition(inventoryPanel);
+
+        openInventoryButton.interactable = true;   
+    }
+    public void OpenGPS()
+    {
+        if (moving)
         {
-            RightHidePosition(gpsPanel);
+            return;
         }
-        else
+        CenterPosition(gpsPanel);
+        RightHidePosition(inventoryPanel);
+        openInventoryButton.interactable = true;
+        gPSButton.interactable = false;
+    }
+   
+    public void CloseGPS()
+    {
+        if (moving)
         {
-            CenterPosition(gpsPanel);
+            return;
         }
+        RightHidePosition(gpsPanel);
+        gPSButton.interactable = true;
     }
     public void HidePanels()
     {

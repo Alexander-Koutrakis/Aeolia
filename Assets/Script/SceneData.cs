@@ -7,4 +7,5 @@ public class SceneData : ScriptableObject
 {
     public string SceneName;
     public Sprite SceneSprite;
+    public string SceneLoaderName;
 }

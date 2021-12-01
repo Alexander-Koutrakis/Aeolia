@@ -24,3 +24,5 @@ MonoBehaviour:
       \u039A\u03B1\u03BB\u03CE\u03C2 \u03BC\u03B1\u03C2 \u03AE\u03C1\u03B8\u03B5\u03C2
       \u03C0\u03AC\u03BB\u03B9 \u03C3\u03C4\u03B7\u03BD \u201C\u0391\u03B9\u03BF\u03BB\u03B9\u03BA\u03AE
       \u03B3\u03B7\u201D!"
+  ScenesToUnlock:
+  - {fileID: 11400000, guid: 42fc68b8e5365d64abf5aabb158f33b5, type: 2}

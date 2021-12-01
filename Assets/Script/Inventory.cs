@@ -29,7 +29,10 @@ public class Inventory:MonoBehaviour
         if (!inventoryItems.Contains(item))
         {
             inventoryItems.Add(item);
-            ShowItem(item);
+            if (item.ItemType == ItemType.KeyItem)
+            {
+                ShowItem(item);
+            }         
         }
     }
 
@@ -61,10 +64,11 @@ public class Inventory:MonoBehaviour
     {
         GameObject itemButtonClone = Instantiate(itemButtonPrefab, gridLayoutGroup.transform);
         Button itemButton = itemButtonClone.GetComponent<Button>();
-        Image buttonImage = itemButtonClone.GetComponentsInChildren<Image>()[1];
+        Image buttonImage = itemButtonClone.GetComponentsInChildren<Image>()[2];
         TMP_Text buttonText = itemButtonClone.GetComponentInChildren<TMP_Text>();
 
         buttonImage.sprite = item.Sprite;
+        buttonImage.preserveAspect = true;
         buttonText.text = item.Name;
         Item buttonItem = item;
         itemButton.onClick.AddListener(delegate { HoldItem(buttonItem); });
@@ -77,6 +81,7 @@ public class Inventory:MonoBehaviour
         {
             if (inventoryItems[i].ItemType == ItemType.KeyItem)
             {
+                Debug.Log(inventoryItems[i].ItemType);
                 ShowItem(inventoryItems[i]);
             }
         }
