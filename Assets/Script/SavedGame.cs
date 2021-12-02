@@ -5,6 +5,8 @@ using System.Linq;
 [System.Serializable]
 public class SavedGame 
 {
+    private string currentScene;
+    public string CurrentScene { get { return this.currentScene;} }
     private SceneSave[] sceneSaves=new SceneSave[0];
     private string[] itemNames = new string[0];
     private string[] availableScenes = new string[0];
@@ -56,7 +58,6 @@ public class SavedGame
             }
         }
     }
-
     public void SaveInventory(List<Item> items)
     {
         itemNames = new string[items.Count];
@@ -65,19 +66,18 @@ public class SavedGame
             itemNames[i] = items[i].Name;
         }
     }
-
     public string[] LoadItems()
     {
         return this.itemNames;
     }
-
     public void SaveAvailableScenes(string[] scenes)
     {
         availableScenes = scenes;
     }
-
     public string[] LoadAvailableScenes()
     {
         return availableScenes;
     }
+
+   
 }

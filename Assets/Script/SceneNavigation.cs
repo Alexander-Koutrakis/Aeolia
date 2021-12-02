@@ -12,6 +12,7 @@ public class SceneNavigation
         if (!availableScenes.Contains(newScene))
         {
             availableScenes.Add(newScene);
+            NotificationController.Instance.Notify(Notification.NewLocation);
         }
     }
 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: "\u0391\u03CA\u03B2\u03B1\u03BB\u03AF"
   m_EditorClassIdentifier: 
   SceneName: "\u0391\u03CA\u03B2\u03B1\u03BB\u03AF"
-  SceneSprite: {fileID: 0}
+  SceneSprite: {fileID: 21300000, guid: 60a2e72fc0103ad4baaac28f886a8792, type: 3}
   SceneLoaderName: Aivali

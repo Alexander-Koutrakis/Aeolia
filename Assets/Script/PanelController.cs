@@ -5,18 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 public class PanelController : MonoBehaviour
 {
-    [SerializeField]private RectTransform inventoryPanel;
-    [SerializeField] private RectTransform gpsPanel;
+
     [SerializeField]private RectTransform buttonPanel;
-    [SerializeField] private Button openInventoryButton;
-    [SerializeField] private Button gPSButton;
+   [SerializeField] private Button[] buttons;
+   [SerializeField] private RectTransform[] rectTransforms;
     private bool moving = false;
     public static PanelController Instance;
 
-    private void Awake()
+    public void Awake()
     {
         Instance = this;
-      
     }
 
     private IEnumerator MovePanel(RectTransform panel, Vector2 targetLocation, float duration,bool hide)
@@ -34,8 +32,6 @@ public class PanelController : MonoBehaviour
         panel.anchoredPosition = targetLocation;
         moving = false;
     }
-
-
     private IEnumerator MovePanel(RectTransform panel,Vector2 targetLocation,float duration)
     {
         moving = true;
@@ -60,52 +56,12 @@ public class PanelController : MonoBehaviour
         Vector2 hideposition = new Vector2(panel.rect.width, 0);
         StartCoroutine(MovePanel(panel, hideposition, 0.5f,true));
     }
-    public void OpenInventory()
-    {
-        if (moving)
-        {
-            return;
-        }      
-            CenterPosition(inventoryPanel);
-            RightHidePosition(gpsPanel);
-        openInventoryButton.interactable = false;
-        gPSButton.interactable = true;
-    }
-    public void CloseInventory()
-    {
-        if (moving)
-        {
-            return;
-        }
-        RightHidePosition(inventoryPanel);
-
-        openInventoryButton.interactable = true;   
-    }
-    public void OpenGPS()
-    {
-        if (moving)
-        {
-            return;
-        }
-        CenterPosition(gpsPanel);
-        RightHidePosition(inventoryPanel);
-        openInventoryButton.interactable = true;
-        gPSButton.interactable = false;
-    }
-   
-    public void CloseGPS()
-    {
-        if (moving)
-        {
-            return;
-        }
-        RightHidePosition(gpsPanel);
-        gPSButton.interactable = true;
-    }
     public void HidePanels()
     {
-        RightHidePosition(inventoryPanel);
-        RightHidePosition(gpsPanel);
+       for(int i = 0; i < rectTransforms.Length; i++)
+        {
+            RightHidePosition(rectTransforms[i]);
+        }
         RightHidePosition(buttonPanel);
     }
     public void ShowPanels()
@@ -114,4 +70,38 @@ public class PanelController : MonoBehaviour
     }
 
   
+    public void NonInteractableButton(Button nonInteractableButton)
+    {
+        for(int i = 0; i < buttons.Length; i++)
+        {
+            if (buttons[i] != nonInteractableButton)
+            {
+                buttons[i].interactable = true;
+            }
+            else
+            {
+                buttons[i].interactable = false;
+            }
+        }
+    }
+
+    public void OpenPanel(RectTransform rectTransform)
+    {
+        for (int i = 0; i < rectTransforms.Length; i++)
+        {
+            if (rectTransforms[i] != rectTransform)
+            {
+                RightHidePosition(rectTransforms[i]);
+            }
+            else
+            {
+                CenterPosition(rectTransforms[i]);
+            }
+        }
+    }
+
+    public void ClosePanel(RectTransform rectTransform)
+    {
+        RightHidePosition(rectTransform);
+    }
 }

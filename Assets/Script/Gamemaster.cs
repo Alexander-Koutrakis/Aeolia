@@ -9,6 +9,7 @@ public class Gamemaster : MonoBehaviour
     public static PlayerGender PlayerGender;
     public static Sprite PlayerPortraitSprite;
     public static Sprite PlayerSprite;
+    public static string CurrentScene;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -16,9 +17,7 @@ public class Gamemaster : MonoBehaviour
         SaveSystem.Delete_Save();
         if (SaveSystem.LoadGame() != null)
         {
-            Debug.Log("load game");
             SavedGame = SaveSystem.LoadGame();
-
         }
         else
         {
@@ -30,6 +29,7 @@ public class Gamemaster : MonoBehaviour
     {
         Inventory.LoadInventory();
         SceneNavigation.LoadAvailableScenes();
+        CurrentScene = SavedGame.CurrentScene;
     }
 
 }

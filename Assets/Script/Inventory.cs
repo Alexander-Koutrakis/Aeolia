@@ -13,12 +13,15 @@ public class Inventory:MonoBehaviour
     [SerializeField] private GameObject itemButtonPrefab;
     private GridLayoutGroup gridLayoutGroup;
     public static Inventory Instance;
-    private void Awake()
+    [SerializeField] private Image itemHoldingImageBackground;
+
+    public void Awake()
     {
         Instance = this;
         gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>(true);
+        gameObject.SetActive(false);
     }
-
+  
     private void Start()
     {
         ShowItems();
@@ -32,18 +35,30 @@ public class Inventory:MonoBehaviour
             if (item.ItemType == ItemType.KeyItem)
             {
                 ShowItem(item);
-            }         
+                NotificationController.Instance.Notify(Notification.NewItem);
+            }
+            else
+            {
+                NotificationController.Instance.Notify(Notification.NewContainer);
+            }
+
+            
         }
     }
 
     public void HoldItem(Item item)
     {
         itemHolding = item;
-        PanelController.Instance.HidePanels();
+        itemHoldingImageBackground.gameObject.SetActive(true);
+        Image holdingItemImage = itemHoldingImageBackground.GetComponentsInChildren<Image>(true)[1];
+        holdingItemImage.sprite = item.Sprite;
     }
 
-   
-
+   public void RemoveItem(Item item)
+    {
+        inventoryItems.Remove(item);
+    }
+    
     public static void SaveInventory()
     {
         Gamemaster.SavedGame.SaveInventory(inventoryItems);
@@ -72,6 +87,8 @@ public class Inventory:MonoBehaviour
         buttonText.text = item.Name;
         Item buttonItem = item;
         itemButton.onClick.AddListener(delegate { HoldItem(buttonItem); });
+        itemButton.onClick.AddListener(delegate { HoldItemButtonSprite(itemButtonClone); });
+        itemButton.onClick.AddListener(delegate { DeselectItems(itemButton); });
         itemButtonClone.name = item.Name;
     }
 
@@ -83,6 +100,30 @@ public class Inventory:MonoBehaviour
             {
                 Debug.Log(inventoryItems[i].ItemType);
                 ShowItem(inventoryItems[i]);
+            }
+        }
+    }
+
+    private void HoldItemButtonSprite(GameObject prefabObject)
+    {
+        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[0];
+        buttonImage.color = new Color32(255, 255, 255, 255);
+    }
+
+    private void NonHoldItemButtonSprite(GameObject prefabObject)
+    {
+        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[0];
+        buttonImage.color = new Color32(255, 255, 255, 0);
+    }
+
+    private void DeselectItems(Button buttonPressed)
+    {
+        Button[] itemButtons = gridLayoutGroup.GetComponentsInChildren<Button>();
+        for(int i = 0; i < itemButtons.Length; i++)
+        {
+            if (itemButtons[i] != buttonPressed)
+            {
+                NonHoldItemButtonSprite(itemButtons[i].gameObject);
             }
         }
     }

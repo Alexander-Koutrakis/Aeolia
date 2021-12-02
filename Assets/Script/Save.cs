@@ -14,13 +14,11 @@ public static class SaveSystem
         SavedGame savedGame;
         if (Gamemaster.SavedGame == null)
         {
-            Debug.Log("New Save");
             savedGame = new SavedGame();
             Gamemaster.SavedGame = savedGame;
         }
         else
         {
-            Debug.Log("Save Game");
             savedGame = Gamemaster.SavedGame;
         }
         binaryFormatter.Serialize(stream, savedGame);
@@ -32,7 +30,6 @@ public static class SaveSystem
         string path = Application.persistentDataPath + "/GameSave";
         if (File.Exists(path))
         {
-            Debug.Log("Load Game");
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             SavedGame savedGame = binaryFormatter.Deserialize(stream) as SavedGame;
@@ -41,8 +38,6 @@ public static class SaveSystem
         }
         else
         {
-
-            Debug.LogWarning("ERROR IN SAVE");
             return null;
         }
     }

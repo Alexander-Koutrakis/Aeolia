@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: "\u039A\u03B9\u03BC\u03B9\u03BD\u03C4\u03AD\u03BD\u03B9\u03B1"
   SceneSprite: {fileID: 0}
+  SceneLoaderName: Kimidenia

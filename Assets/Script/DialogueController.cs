@@ -15,7 +15,8 @@ public class DialogueController : MonoBehaviour
     [SerializeField]private Dialogue lockedDialogue;
     [SerializeField]private Dialogue repeatItemDialogue;
     [SerializeField] private Dialogue repeatSceneDialogue;
-    private void Awake()
+
+    public void Awake()
     {
         Instance = this;
         dialogueSpeakerName = dialoguePanel.GetComponentsInChildren<TMP_Text>(true)[0];
@@ -29,12 +30,11 @@ public class DialogueController : MonoBehaviour
         this.dialogue = dialogue;
         dialoguePanel.SetActive(true);
         NextSentence();
-        PanelController.Instance.HidePanels();
+       // PanelController.Instance.HidePanels();
     }
 
     public void ShowDialogueSentence(DialogueSentence dialogueSentence)
     {      
-       // dialogueSpeakerName.text = dialogueSentence.SpeakerName;
         dialogueText.text = dialogueSentence.Text;
         if (dialogueSentence.SpeakerName == "Δημοσιογράφος")
         {
@@ -43,9 +43,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             speakerImage.sprite = dialogueSentence.SpeakerSprite;
-        }
-        
-        
+        }        
     }
 
     public void NextSentence()
@@ -66,6 +64,16 @@ public class DialogueController : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         PanelController.Instance.ShowPanels();
+        if (dialogue.ScenesToUnlock == null)
+        {
+            return;
+        }
+
+       for(int i = 0; i < dialogue.ScenesToUnlock.Length; i++)
+       {
+            SceneNavigation.AddAvailableScene(dialogue.ScenesToUnlock[i]);
+            GPS.Instance.ShowScene(dialogue.ScenesToUnlock[i]);
+       }
     }
 
     public void StartLockedDialogue()

@@ -15,15 +15,16 @@ public class Focus : MonoBehaviour
     private Queue<IEnumerator> CoroutineStack = new Queue<IEnumerator>();
     private bool running;
 
-    private void Awake()
+    public void Awake()
     {
         Instance = this;
         fadeImage = focusGameobject.GetComponent<Image>();
         focusImage = focusGameobject.GetComponentsInChildren<Image>(true)[1];
         focusText = focusGameobject.GetComponentInChildren<TMP_Text>(true);
-        canvasGroup=focusGameobject.GetComponent<CanvasGroup>();
+        canvasGroup = focusGameobject.GetComponent<CanvasGroup>();
+        focusGameobject.SetActive(false);
     }
-
+ 
     private IEnumerator FadeCanvasGroup(float duration,bool fadeIn)
     {
 
@@ -98,22 +99,25 @@ public class Focus : MonoBehaviour
         focusGameobject.SetActive(true);
         focusImage.sprite = item.Sprite;
         focusImage.preserveAspect = true;
+        focusImage.rectTransform.pivot = SpritePivotToRect(item.Sprite);
+
         focusText.text = item.Name;
 
         StartCoroutine(FadeCanvasGroup(fadingTime, true));
         StartCoroutine(ScaleFocusImage(fadingTime, true));
-        //CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime/2, true));
-       // CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, true));
-       // StarCoroutineSequence();
     }
     public void UnFocusItem()
     {
         StartCoroutine(ScaleFocusImage(fadingTime, false));
         StartCoroutine(FadeCanvasGroup(fadingTime, false));
-        //CoroutineStack.Enqueue(ScaleFocusImage(fadingTime, false));
-        //CoroutineStack.Enqueue(FadeCanvasGroup(fadingTime, false));
         CoroutineStack.Enqueue(DisableGameobject());
         StarCoroutineSequence();
     }
 
+    private Vector2 SpritePivotToRect(Sprite sprite)
+    {
+        float x = sprite.pivot.x / sprite.rect.width;
+        float y = sprite.pivot.y / sprite.rect.height;
+        return new Vector2(x, y);
+    }
 }

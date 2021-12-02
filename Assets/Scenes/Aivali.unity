@@ -296,35 +296,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1877661880}
+      objectReference: {fileID: 138107410}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 138107410}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: OpenPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: NonInteractableButton
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: PanelController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 138107411}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Car
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 138107412}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.RectTransform, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Button, UnityEngine.UI
       objectReference: {fileID: 0}
     - target: {fileID: 8963039786920845014, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -388,6 +412,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
+--- !u!114 &138107410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3483907513032340775, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+  m_PrefabInstance: {fileID: 138107405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b61ccc04fb78784991e2d0b5eee8353, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &138107411 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6362602514810666636, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+  m_PrefabInstance: {fileID: 138107405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &138107412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7152835984932620279, guid: 50197c2a45a5ce548a0b972aa18b330f, type: 3}
+  m_PrefabInstance: {fileID: 138107405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506695831
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +684,18 @@ MonoBehaviour:
       - m_Target: {fileID: 944904637}
         m_TargetAssemblyTypeName: ItemContainer, Assembly-CSharp
         m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 138107410}
+        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
+        m_MethodName: HidePanels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1110,6 +1173,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 138107410}
+        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
+        m_MethodName: HidePanels
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1634681098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1355,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 138107410}
+        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
+        m_MethodName: HidePanels
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1703407323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1440,17 +1527,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e3632c369a7cf341b8223637acf8ef9, type: 3}
---- !u!114 &1877661880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3404229744365244462, guid: 6e3632c369a7cf341b8223637acf8ef9, type: 3}
-  m_PrefabInstance: {fileID: 1877661879}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318b95cc8c993bb42ab85bc3e3ecf2ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2138229534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1613,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2138229537}
         m_TargetAssemblyTypeName: ItemContainer, Assembly-CSharp
         m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 138107410}
+        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
+        m_MethodName: HidePanels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

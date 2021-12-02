@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class SceneMaster : MonoBehaviour
 {
     [SerializeField] private Dialogue startDialogue;
     private bool sceneVisited;
     [SerializeField] private string sceneName;
     [SerializeField] private Image playerAvatar;
+
+   
+
     private void Start()
     {
         if (startDialogue != null)
@@ -27,7 +31,7 @@ public class SceneMaster : MonoBehaviour
         {
             playerAvatar.sprite = Gamemaster.PlayerSprite;
         }
-        
+        Gamemaster.CurrentScene = SceneManager.GetActiveScene().name;    
     }
 
     private void OnEnable()
@@ -73,4 +77,6 @@ public class SceneMaster : MonoBehaviour
 
         return itemSaves;
     }
+
+    
 }

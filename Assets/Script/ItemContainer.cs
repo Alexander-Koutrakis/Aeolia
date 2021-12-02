@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,17 +58,16 @@ public class ItemContainer : MonoBehaviour
 
     private void TryToOpen()
     {
-        Debug.Log("Try to Open");
         if (Inventory.ItemHolding != key|| Inventory.ItemHolding==null)
         {
-            Debug.Log("Wrong Key");
             DialogueController.Instance.StartLockedDialogue();
         }
         else
         {
-            Debug.Log("Correct Key");
             Focus.Instance.FocusItem(item.ContainedItem);
             Inventory.Instance.TakeItem(item.ContainedItem);
+            Inventory.Instance.RemoveItem(item);
+            gameObject.SetActive(false);
         }
     }
 
