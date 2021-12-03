@@ -10,7 +10,8 @@ public class ItemContainer : MonoBehaviour
     [SerializeField] private Dialogue focusDialogue;
     [SerializeField] private Action playerAction;
     public bool UsedItem=false;
-
+    public delegate void EnviromentalUnlockAction();
+    public EnviromentalUnlockAction EnviromentalUnlock;
     public void Interact()
     {
         switch (playerAction) {
@@ -23,6 +24,9 @@ public class ItemContainer : MonoBehaviour
             case Action.TryToOpen:
                 TryToOpen();
                 break;
+            case Action.SpeakOnce:
+                SpeakOnce();
+                break;
             default:
                 break;
         }
@@ -31,7 +35,9 @@ public class ItemContainer : MonoBehaviour
 
     private void Look()
     {
+
         Focus.Instance.FocusItem(item);
+
         if (focusDialogue != null)
         {
             if (!UsedItem)
@@ -64,13 +70,25 @@ public class ItemContainer : MonoBehaviour
         }
         else
         {
-            Focus.Instance.FocusItem(item.ContainedItem);
-            Inventory.Instance.TakeItem(item.ContainedItem);
-            Inventory.Instance.RemoveItem(item);
-            gameObject.SetActive(false);
+            if (item.ItemType == ItemType.ContainerItem)
+            {
+                Focus.Instance.FocusItem(item.ContainedItem);
+                Inventory.Instance.TakeItem(item.ContainedItem);
+                Inventory.Instance.RemoveItem(item);
+                gameObject.SetActive(false);
+            }
+            else if(item.ItemType == ItemType.EnviromentLocked)
+            {
+                EnviromentalUnlock();
+            }       
         }
     }
-
+    private void SpeakOnce()
+    {
+        DialogueController.Instance.StartDialogue(focusDialogue);
+        gameObject.SetActive(false);
+        UsedItem = true;
+    }
     public ItemSave SaveItem()
     {
         ItemSave itemSave = new ItemSave(gameObject.name, gameObject.activeSelf,UsedItem);
@@ -81,7 +99,15 @@ public class ItemContainer : MonoBehaviour
     {
         gameObject.SetActive(itemSave.Active);
         UsedItem = itemSave.Used;
+        if (UsedItem)
+        {
+            if (EnviromentalUnlock != null)
+            {
+                EnviromentalUnlock();
+            }
+           
+        }
     }
 }
 [System.Serializable]
-public enum Action { Take,TryToOpen,Look}
+public enum Action { Take,TryToOpen,Look,SpeakOnce}

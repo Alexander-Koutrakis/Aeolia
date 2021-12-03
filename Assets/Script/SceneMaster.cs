@@ -9,7 +9,7 @@ public class SceneMaster : MonoBehaviour
     private bool sceneVisited;
     [SerializeField] private string sceneName;
     [SerializeField] private Image playerAvatar;
-
+    [SerializeField] private Sprite femaleSpriteAvatar;
    
 
     private void Start()
@@ -29,13 +29,13 @@ public class SceneMaster : MonoBehaviour
 
         if (playerAvatar != null)
         {
-            playerAvatar.sprite = Gamemaster.PlayerSprite;
+            if (Gamemaster.PlayerGender == PlayerGender.Female)
+            {
+                playerAvatar.sprite = femaleSpriteAvatar;
+            }
+           
         }
-        Gamemaster.CurrentScene = SceneManager.GetActiveScene().name;    
-    }
-
-    private void OnEnable()
-    {
+        Gamemaster.CurrentScene = SceneManager.GetActiveScene().name;
         LoadScene();
     }
 

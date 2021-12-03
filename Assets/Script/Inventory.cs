@@ -46,12 +46,13 @@ public class Inventory:MonoBehaviour
         }
     }
 
-    public void HoldItem(Item item)
+    private void HoldItem(Item item)
     {
         itemHolding = item;
         itemHoldingImageBackground.gameObject.SetActive(true);
         Image holdingItemImage = itemHoldingImageBackground.GetComponentsInChildren<Image>(true)[1];
-        holdingItemImage.sprite = item.Sprite;
+        holdingItemImage.sprite = item.HoldingSprite;
+        holdingItemImage.preserveAspect = true;
     }
 
    public void RemoveItem(Item item)
@@ -82,14 +83,13 @@ public class Inventory:MonoBehaviour
         Image buttonImage = itemButtonClone.GetComponentsInChildren<Image>()[2];
         TMP_Text buttonText = itemButtonClone.GetComponentInChildren<TMP_Text>();
 
-        buttonImage.sprite = item.Sprite;
+        buttonImage.sprite = item.FocusSprite;
         buttonImage.preserveAspect = true;
         buttonText.text = item.Name;
         Item buttonItem = item;
-        itemButton.onClick.AddListener(delegate { HoldItem(buttonItem); });
-        itemButton.onClick.AddListener(delegate { HoldItemButtonSprite(itemButtonClone); });
-        itemButton.onClick.AddListener(delegate { DeselectItems(itemButton); });
         itemButtonClone.name = item.Name;
+        itemButton.onClick.AddListener(delegate { InventoryButtonClick(buttonItem, itemButtonClone); });
+        
     }
 
     public void ShowItems()
@@ -98,7 +98,6 @@ public class Inventory:MonoBehaviour
         {
             if (inventoryItems[i].ItemType == ItemType.KeyItem)
             {
-                Debug.Log(inventoryItems[i].ItemType);
                 ShowItem(inventoryItems[i]);
             }
         }
@@ -116,8 +115,9 @@ public class Inventory:MonoBehaviour
         buttonImage.color = new Color32(255, 255, 255, 0);
     }
 
-    private void DeselectItems(Button buttonPressed)
+    private void DeselectItems(GameObject prefabObject)
     {
+        Button buttonPressed = prefabObject.GetComponent<Button>();
         Button[] itemButtons = gridLayoutGroup.GetComponentsInChildren<Button>();
         for(int i = 0; i < itemButtons.Length; i++)
         {
@@ -126,5 +126,26 @@ public class Inventory:MonoBehaviour
                 NonHoldItemButtonSprite(itemButtons[i].gameObject);
             }
         }
+    }
+
+    private void InventoryButtonClick(Item item,GameObject prefabObject)
+    {
+        if (itemHolding == item)
+        {
+            UnHoldItem(prefabObject);
+        }
+        else
+        {
+            HoldItem(item);
+            HoldItemButtonSprite(prefabObject);
+            DeselectItems(prefabObject);
+        }
+    }
+
+    private void UnHoldItem(GameObject prefabObject)
+    {
+        NonHoldItemButtonSprite(prefabObject);
+        itemHolding = null ;
+        itemHoldingImageBackground.gameObject.SetActive(false);
     }
 }

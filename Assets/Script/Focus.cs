@@ -97,9 +97,9 @@ public class Focus : MonoBehaviour
     public void FocusItem(Item item)
     {
         focusGameobject.SetActive(true);
-        focusImage.sprite = item.Sprite;
+        focusImage.sprite = item.FocusSprite;
         focusImage.preserveAspect = true;
-        focusImage.rectTransform.pivot = SpritePivotToRect(item.Sprite);
+        focusImage.rectTransform.pivot = SpritePivotToRect(item.FocusSprite);
 
         focusText.text = item.Name;
 

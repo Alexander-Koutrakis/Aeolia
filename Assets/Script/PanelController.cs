@@ -6,7 +6,7 @@ using TMPro;
 public class PanelController : MonoBehaviour
 {
 
-    [SerializeField]private RectTransform buttonPanel;
+   [SerializeField]private RectTransform buttonPanel;
    [SerializeField] private Button[] buttons;
    [SerializeField] private RectTransform[] rectTransforms;
     private bool moving = false;
@@ -68,8 +68,6 @@ public class PanelController : MonoBehaviour
     {
         CenterPosition(buttonPanel);
     }
-
-  
     public void NonInteractableButton(Button nonInteractableButton)
     {
         for(int i = 0; i < buttons.Length; i++)
@@ -84,7 +82,6 @@ public class PanelController : MonoBehaviour
             }
         }
     }
-
     public void OpenPanel(RectTransform rectTransform)
     {
         for (int i = 0; i < rectTransforms.Length; i++)

@@ -9,7 +9,7 @@ public class GPS : MonoBehaviour
     [SerializeField] private GameObject sceneButtonPrefab;
     private GridLayoutGroup gridLayoutGroup;
     public static GPS Instance;
-
+    private Queue<GameObject> gameObjectsToDestroy = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -19,10 +19,8 @@ public class GPS : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Start()
-    {
-        //ShowAvailableScenes();
-    }
+
+  
 
     private void ShowAvailableScenes()
     {     

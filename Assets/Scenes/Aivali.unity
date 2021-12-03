@@ -861,6 +861,7 @@ MonoBehaviour:
   startDialogue: {fileID: 11400000, guid: dffd637e4e7a31b48baec9862ba52827, type: 2}
   sceneName: "\u0391\u03B9\u03B2\u03B1\u03BB\u03AF"
   playerAvatar: {fileID: 506695833}
+  femaleSpriteAvatar: {fileID: 21300000, guid: b2b3128699512144b9556e944eefbcc4, type: 3}
 --- !u!114 &1167958679
 MonoBehaviour:
   m_ObjectHideFlags: 0

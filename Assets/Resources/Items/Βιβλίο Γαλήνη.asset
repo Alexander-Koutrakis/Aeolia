@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8d9de7f62c05409a2a24009c4824c, type: 3}
   m_Name: "\u0392\u03B9\u03B2\u03BB\u03AF\u03BF \u0393\u03B1\u03BB\u03AE\u03BD\u03B7"
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -4889290153580974109, guid: eb7ac5d64e98873458a81e347393734e, type: 3}
+  FocusSprite: {fileID: -4889290153580974109, guid: eb7ac5d64e98873458a81e347393734e, type: 3}
+  HoldingSprite: {fileID: 0}
   Name: "\u0392\u03B9\u03B2\u03BB\u03AF\u03BF \u0393\u03B1\u03BB\u03AE\u03BD\u03B7"
   ItemType: 2
   ContainedItem: {fileID: 0}

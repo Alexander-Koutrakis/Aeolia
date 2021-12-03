@@ -70,9 +70,12 @@ public class DialogueController : MonoBehaviour
         }
 
        for(int i = 0; i < dialogue.ScenesToUnlock.Length; i++)
-       {
-            SceneNavigation.AddAvailableScene(dialogue.ScenesToUnlock[i]);
-            GPS.Instance.ShowScene(dialogue.ScenesToUnlock[i]);
+       {         
+            if (!SceneNavigation.AvailableScenes.Contains(dialogue.ScenesToUnlock[i]))
+            {
+                SceneNavigation.AddAvailableScene(dialogue.ScenesToUnlock[i]);
+                GPS.Instance.ShowScene(dialogue.ScenesToUnlock[i]);
+            }      
        }
     }
 

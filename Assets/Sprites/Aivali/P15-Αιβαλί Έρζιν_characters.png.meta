@@ -148,48 +148,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u0394\u03B7\u03BC\u03BF\u03C3\u03B9\u03BF\u03B3\u03C1\u03B1\u03C6\u03BF\u03C2"
-      rect:
-        serializedVersion: 2
-        x: 802
-        y: 741
-        width: 95
-        height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b7c4238c3de59480800000000000000
-      internalID: -8892941045019129931
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u0395\u03C1\u03B6\u03B9\u03BD"
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 549
-        width: 104
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 908aac536afa5cb30800000000000000
-      internalID: 4307041747051653129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: "P15-\u0391\u03B9\u03B2\u03B1\u03BB\u03AF \u0388\u03C1\u03B6\u03B9\u03BD_characters_2"
       rect:
         serializedVersion: 2

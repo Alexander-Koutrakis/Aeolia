@@ -16,6 +16,7 @@ public class SceneNavigation
         }
     }
 
+   
     public static void SaveAvailableScenes()
     {
         string[] sceneNames = new string[availableScenes.Count];

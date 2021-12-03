@@ -23,13 +23,11 @@ public class MainMenu : MonoBehaviour
         {
             Gamemaster.PlayerGender = PlayerGender.Male;
             Gamemaster.PlayerPortraitSprite = Resources.Load<Sprite>("MalePortrait");
-            Gamemaster.PlayerSprite = Resources.Load<Sprite>("MaleAvatar");
         }
         else
         {
             Gamemaster.PlayerGender = PlayerGender.Female;
             Gamemaster.PlayerPortraitSprite = Resources.Load<Sprite>("FemalePortrait");
-            Gamemaster.PlayerSprite = Resources.Load<Sprite>("FemaleAvatar");
         }
 
         for(int i = 0; i < panels.Length; i++)

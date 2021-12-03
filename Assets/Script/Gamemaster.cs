@@ -8,7 +8,6 @@ public class Gamemaster : MonoBehaviour
     public static SavedGame SavedGame;
     public static PlayerGender PlayerGender;
     public static Sprite PlayerPortraitSprite;
-    public static Sprite PlayerSprite;
     public static string CurrentScene;
     private void Awake()
     {
