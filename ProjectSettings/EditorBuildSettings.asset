@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Car.unity
     guid: b648175b5de19784cafaa058c1019460
+  - enabled: 1
+    path: Assets/Scenes/Molivos.unity
+    guid: a2f98422fb661da41aaa41fdae9d270d
+  - enabled: 1
+    path: Assets/Scenes/Theatro.unity
+    guid: c52c0eb4da4f09c48ace1075500cb310
   m_configObjects: {}

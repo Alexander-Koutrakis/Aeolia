@@ -14,6 +14,7 @@ public class SceneMaster : MonoBehaviour
 
     private void Start()
     {
+        LoadScene();
         if (startDialogue != null)
         {
             if (!sceneVisited)
@@ -36,8 +37,10 @@ public class SceneMaster : MonoBehaviour
            
         }
         Gamemaster.CurrentScene = SceneManager.GetActiveScene().name;
-        LoadScene();
+        
     }
+
+
 
     private void OnDisable()
     {
@@ -46,6 +49,7 @@ public class SceneMaster : MonoBehaviour
 
     private void SaveScene()
     {
+
         SceneSave sceneSave = new SceneSave(sceneName, sceneVisited, ItemSaves());
         Gamemaster.SavedGame.SaveScene(sceneSave);
     }

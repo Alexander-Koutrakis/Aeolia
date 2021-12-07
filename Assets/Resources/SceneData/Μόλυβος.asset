@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: "\u039C\u03CC\u03BB\u03C5\u03B2\u03BF\u03C2"
   m_EditorClassIdentifier: 
   SceneName: "\u039C\u03CC\u03BB\u03C5\u03B2\u03BF\u03C2"
-  SceneSprite: {fileID: 0}
+  SceneSprite: {fileID: -4843435928686619682, guid: b27c0f8a11d1c0c429d812d5ce98382c, type: 3}
+  SceneLoaderName: Molivos

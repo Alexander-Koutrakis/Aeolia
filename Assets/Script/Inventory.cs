@@ -14,6 +14,7 @@ public class Inventory:MonoBehaviour
     private GridLayoutGroup gridLayoutGroup;
     public static Inventory Instance;
     [SerializeField] private Image itemHoldingImageBackground;
+    private Queue<GameObject> gameObjectsToDestroy = new Queue<GameObject>();
 
     public void Awake()
     {
@@ -22,9 +23,17 @@ public class Inventory:MonoBehaviour
         gameObject.SetActive(false);
     }
   
-    private void Start()
+    private void OnEnable()
     {
         ShowItems();
+    }
+
+    private void OnDisable()
+    {
+        while (gameObjectsToDestroy.Count > 0)
+        {
+            Destroy(gameObjectsToDestroy.Dequeue());
+        }
     }
 
     public void TakeItem(Item item)
@@ -34,15 +43,12 @@ public class Inventory:MonoBehaviour
             inventoryItems.Add(item);
             if (item.ItemType == ItemType.KeyItem)
             {
-                ShowItem(item);
                 NotificationController.Instance.Notify(Notification.NewItem);
             }
             else
             {
                 NotificationController.Instance.Notify(Notification.NewContainer);
-            }
-
-            
+            }      
         }
     }
 
@@ -80,16 +86,16 @@ public class Inventory:MonoBehaviour
     {
         GameObject itemButtonClone = Instantiate(itemButtonPrefab, gridLayoutGroup.transform);
         Button itemButton = itemButtonClone.GetComponent<Button>();
-        Image buttonImage = itemButtonClone.GetComponentsInChildren<Image>()[2];
+        Image buttonImage = itemButtonClone.GetComponentsInChildren<Image>()[3];
         TMP_Text buttonText = itemButtonClone.GetComponentInChildren<TMP_Text>();
 
-        buttonImage.sprite = item.FocusSprite;
+        buttonImage.sprite = item.HoldingSprite;
         buttonImage.preserveAspect = true;
         buttonText.text = item.Name;
         Item buttonItem = item;
         itemButtonClone.name = item.Name;
         itemButton.onClick.AddListener(delegate { InventoryButtonClick(buttonItem, itemButtonClone); });
-        
+        gameObjectsToDestroy.Enqueue(itemButtonClone);
     }
 
     public void ShowItems()
@@ -105,13 +111,13 @@ public class Inventory:MonoBehaviour
 
     private void HoldItemButtonSprite(GameObject prefabObject)
     {
-        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[0];
+        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[2];
         buttonImage.color = new Color32(255, 255, 255, 255);
     }
 
     private void NonHoldItemButtonSprite(GameObject prefabObject)
     {
-        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[0];
+        Image buttonImage = prefabObject.GetComponentsInChildren<Image>()[2];
         buttonImage.color = new Color32(255, 255, 255, 0);
     }
 

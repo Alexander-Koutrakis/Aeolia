@@ -175,10 +175,10 @@ TextureImporter:
       name: "\u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03B4\u03B9\u03B1 \u03C7\u03B1\u03C1\u03B1\u03BA\u03C4\u03AE\u03C1\u03C9\u03BD-\u0391\u0395\u039F\u039B\u0399\u0391_16"
       rect:
         serializedVersion: 2
-        x: 271
-        y: 278
-        width: 610
-        height: 610
+        x: 261
+        y: 266
+        width: 628
+        height: 628
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,12 +196,12 @@ TextureImporter:
       name: "\u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03B4\u03B9\u03B1 \u03C7\u03B1\u03C1\u03B1\u03BA\u03C4\u03AE\u03C1\u03C9\u03BD-\u0391\u0395\u039F\u039B\u0399\u0391_0"
       rect:
         serializedVersion: 2
-        x: 1703
-        y: 3170
-        width: 610
-        height: 610
+        x: 1694
+        y: 3163
+        width: 628
+        height: 628
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,6 +209,48 @@ TextureImporter:
       bones: []
       spriteID: 988fc22a3ffd0f300800000000000000
       internalID: 283973014015244425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03B4\u03B9\u03B1 \u03C7\u03B1\u03C1\u03B1\u03BA\u03C4\u03AE\u03C1\u03C9\u03BD-\u0391\u0395\u039F\u039B\u0399\u0391_1"
+      rect:
+        serializedVersion: 2
+        x: 2413
+        y: 3163
+        width: 628
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c83dae5c4265790800000000000000
+      internalID: -7541800093518427017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03B4\u03B9\u03B1 \u03C7\u03B1\u03C1\u03B1\u03BA\u03C4\u03AE\u03C1\u03C9\u03BD-\u0391\u0395\u039F\u039B\u0399\u0391_2"
+      rect:
+        serializedVersion: 2
+        x: 2410
+        y: 2440
+        width: 628
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15eabc3ec5b9022a0800000000000000
+      internalID: -6764235817049412015
       vertices: []
       indices: 
       edges: []

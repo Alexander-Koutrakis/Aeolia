@@ -9,6 +9,8 @@ public class PanelController : MonoBehaviour
    [SerializeField]private RectTransform buttonPanel;
    [SerializeField] private Button[] buttons;
    [SerializeField] private RectTransform[] rectTransforms;
+    [SerializeField] private Button closeButton;
+    [SerializeField] private TMP_Text titleText;
     private bool moving = false;
     public static PanelController Instance;
 
@@ -95,10 +97,33 @@ public class PanelController : MonoBehaviour
                 CenterPosition(rectTransforms[i]);
             }
         }
+
+        closeButton.onClick.RemoveAllListeners();
+        closeButton.onClick.AddListener(delegate { ClosePanel(rectTransform); });
+        closeButton.gameObject.SetActive(true);
+        ShowTitle(rectTransform.name);
     }
 
-    public void ClosePanel(RectTransform rectTransform)
+    private void ClosePanel(RectTransform rectTransform)
     {
         RightHidePosition(rectTransform);
+        closeButton.gameObject.SetActive(false);
+        HideTitle();
+        for (int i = 0; i < buttons.Length; i++)
+        {          
+          buttons[i].interactable = true;
+        }
+
+    }
+
+    private void ShowTitle(string text)
+    {
+        titleText.gameObject.SetActive(true);
+        titleText.text = text;
+    }
+
+    private void HideTitle()
+    {
+        titleText.gameObject.SetActive(false);
     }
 }

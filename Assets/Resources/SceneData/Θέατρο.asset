@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: "\u0398\u03AD\u03B1\u03C4\u03C1\u03BF"
   m_EditorClassIdentifier: 
   SceneName: "\u0398\u03AD\u03B1\u03C4\u03C1\u03BF"
-  SceneSprite: {fileID: 0}
+  SceneSprite: {fileID: 21300000, guid: 41cab69987e2bb4459aa748451d83185, type: 3}
+  SceneLoaderName: Theatro

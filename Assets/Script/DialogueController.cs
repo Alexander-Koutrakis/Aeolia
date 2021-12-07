@@ -74,7 +74,6 @@ public class DialogueController : MonoBehaviour
             if (!SceneNavigation.AvailableScenes.Contains(dialogue.ScenesToUnlock[i]))
             {
                 SceneNavigation.AddAvailableScene(dialogue.ScenesToUnlock[i]);
-                GPS.Instance.ShowScene(dialogue.ScenesToUnlock[i]);
             }      
        }
     }

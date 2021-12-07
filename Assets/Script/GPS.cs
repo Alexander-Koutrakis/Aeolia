@@ -14,13 +14,23 @@ public class GPS : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>(true);
-        ShowAvailableScenes();
+        gridLayoutGroup = GetComponentInChildren<GridLayoutGroup>(true);    
         gameObject.SetActive(false);
     }
 
 
-  
+    private void OnEnable()
+    {
+        ShowAvailableScenes();
+    }
+
+    private void OnDisable()
+    {
+        while (gameObjectsToDestroy.Count > 0)
+        {
+            Destroy(gameObjectsToDestroy.Dequeue());
+        }
+    }
 
     private void ShowAvailableScenes()
     {     
@@ -43,6 +53,7 @@ public class GPS : MonoBehaviour
         sceneButton.onClick.AddListener(delegate { SceneLoader.Instance.LoadScene(shownScene.SceneLoaderName); });
         sceneImage.sprite = shownScene.SceneSprite;
         newSceneText.text = shownScene.SceneName;
+        gameObjectsToDestroy.Enqueue(newSceneGameobject);
     }
 
     public void LoadToScene(string sceneName)
