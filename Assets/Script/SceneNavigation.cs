@@ -33,10 +33,13 @@ public class SceneNavigation
         availableScenes.Clear();
         for (int i = 0; i < sceneNames.Length; i++)
         {
-            SceneData availableScene= Resources.Load<SceneData>("/SceneData/" + sceneNames[i]);
+            SceneData availableScene=GameObject.Instantiate( Resources.Load<SceneData>("SceneData/" + sceneNames[i]));
             availableScenes.Add(availableScene);
         }
     }
 
-
+    public static void NewGame()
+    {
+        availableScenes.Clear();
+    }
 }

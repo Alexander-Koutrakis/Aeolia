@@ -33,16 +33,15 @@ public class GPS : MonoBehaviour
     }
 
     private void ShowAvailableScenes()
-    {     
+    {
         for(int i = 0; i < SceneNavigation.AvailableScenes.Count; i++)
-        {
+        {           
             ShowScene(SceneNavigation.AvailableScenes[i]);
         }
     }
 
     public void ShowScene(SceneData sceneData)
     {
-        Debug.Log("Show scene");
         GameObject newSceneGameobject = Instantiate(sceneButtonPrefab, gridLayoutGroup.transform);
         Button sceneButton = newSceneGameobject.GetComponent<Button>();
         Image sceneImage = newSceneGameobject.GetComponentsInChildren<Image>()[2];

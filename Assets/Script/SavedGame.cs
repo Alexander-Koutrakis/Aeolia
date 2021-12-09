@@ -5,8 +5,10 @@ using System.Linq;
 [System.Serializable]
 public class SavedGame 
 {
-    private string currentScene;
-    public string CurrentScene { get { return this.currentScene;} }
+    private string playerGender;
+    public string PlayerGender { get { return this.playerGender; } }
+    private string lastScene;
+    public string LastScene { get { return this.lastScene;} }
     private SceneSave[] sceneSaves=new SceneSave[0];
     private string[] itemNames = new string[0];
     private string[] availableScenes = new string[0];
@@ -79,5 +81,13 @@ public class SavedGame
         return availableScenes;
     }
 
-   
+   public void SaveLastScene(string lastScene)
+    {
+        this.lastScene = lastScene;
+    }
+
+    public void SavePlayerGender(PlayerGender playerGender)
+    {
+        this.playerGender = playerGender.ToString();
+    }
 }

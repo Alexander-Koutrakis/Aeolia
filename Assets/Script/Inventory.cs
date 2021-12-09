@@ -74,14 +74,19 @@ public class Inventory:MonoBehaviour
     public static void LoadInventory()
     {
         string[] itemNames = Gamemaster.SavedGame.LoadItems();
+
         inventoryItems.Clear();
         for(int i = 0; i < itemNames.Length; i++)
         {
-            Item savedItem = Resources.Load<Item>("/Items/" + itemNames[i]);
+            Item savedItem = Instantiate(Resources.Load<Item>("Items/" + itemNames[i]));
             inventoryItems.Add(savedItem);
         }
     }
 
+    public static void NewGame()
+    {
+        inventoryItems.Clear();
+    }
     public void ShowItem(Item item)
     {
         GameObject itemButtonClone = Instantiate(itemButtonPrefab, gridLayoutGroup.transform);

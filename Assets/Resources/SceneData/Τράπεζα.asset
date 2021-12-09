@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: "\u03A4\u03C1\u03AC\u03C0\u03B5\u03B6\u03B1"
   m_EditorClassIdentifier: 
   SceneName: "\u03A4\u03C1\u03AC\u03C0\u03B5\u03B6\u03B1"
-  SceneSprite: {fileID: 0}
+  SceneSprite: {fileID: -7901753355288291007, guid: f466d8a54002b1a4498bc9b54df15b29, type: 3}
+  SceneLoaderName: Trapeza

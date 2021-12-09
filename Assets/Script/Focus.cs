@@ -27,7 +27,6 @@ public class Focus : MonoBehaviour
  
     private IEnumerator FadeCanvasGroup(float duration,bool fadeIn)
     {
-
         running = true;
         float targetAlpha;
         float t = 0f;
@@ -99,15 +98,15 @@ public class Focus : MonoBehaviour
         focusGameobject.SetActive(true);
         focusImage.sprite = item.FocusSprite;
         focusImage.preserveAspect = true;
-        focusImage.rectTransform.pivot = SpritePivotToRect(item.FocusSprite);
-
+        focusImage.rectTransform.pivot = SpritePivotToRect(item.FocusSprite);    
         focusText.text = item.Name;
-
+        StopAllCoroutines();
         StartCoroutine(FadeCanvasGroup(fadingTime, true));
         StartCoroutine(ScaleFocusImage(fadingTime, true));
     }
     public void UnFocusItem()
     {
+        StopAllCoroutines();
         StartCoroutine(ScaleFocusImage(fadingTime, false));
         StartCoroutine(FadeCanvasGroup(fadingTime, false));
         CoroutineStack.Enqueue(DisableGameobject());

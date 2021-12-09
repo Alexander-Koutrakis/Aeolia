@@ -13,8 +13,15 @@ public class YellowRoom : EnviromentalItem
     }
     public override void Action()
     {
-        DoorClosed.SetActive(false);
-        DoorOpen.SetActive(true);
+        if (DoorClosed != null)
+        {
+            DoorClosed.SetActive(false);
+        }
+        if (DoorOpen != null)
+        {
+            DoorOpen.SetActive(true);
+        }
+        
         gameObject.SetActive(false);
     }
 }

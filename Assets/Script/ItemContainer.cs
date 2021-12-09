@@ -9,6 +9,7 @@ public class ItemContainer : MonoBehaviour
     [SerializeField] private Item key;
     [SerializeField] private Dialogue focusDialogue;
     [SerializeField] private Action playerAction;
+    public Action PlayerAction { get { return this.playerAction; } }
     public bool UsedItem=false;
     public delegate void EnviromentalUnlockAction();
     public EnviromentalUnlockAction EnviromentalUnlock;

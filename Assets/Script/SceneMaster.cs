@@ -15,6 +15,15 @@ public class SceneMaster : MonoBehaviour
     private void Start()
     {
         LoadScene();
+        if (playerAvatar != null)
+        {
+            if (Gamemaster.PlayerGender == PlayerGender.Female)
+            {
+                playerAvatar.sprite = femaleSpriteAvatar;
+
+            }
+
+        }
         if (startDialogue != null)
         {
             if (!sceneVisited)
@@ -28,16 +37,8 @@ public class SceneMaster : MonoBehaviour
             }
         }
 
-        if (playerAvatar != null)
-        {
-            if (Gamemaster.PlayerGender == PlayerGender.Female)
-            {
-                playerAvatar.sprite = femaleSpriteAvatar;
-            }
-           
-        }
-        Gamemaster.CurrentScene = SceneManager.GetActiveScene().name;
         
+        Debug.Log(Gamemaster.SavedGame.PlayerGender);
     }
 
 
@@ -49,9 +50,12 @@ public class SceneMaster : MonoBehaviour
 
     private void SaveScene()
     {
-
         SceneSave sceneSave = new SceneSave(sceneName, sceneVisited, ItemSaves());
         Gamemaster.SavedGame.SaveScene(sceneSave);
+        Gamemaster.SavedGame.SaveLastScene(SceneManager.GetActiveScene().name);
+        Inventory.SaveInventory();
+        SceneNavigation.SaveAvailableScenes();
+        SaveSystem.Save();
     }
 
     private void LoadScene()

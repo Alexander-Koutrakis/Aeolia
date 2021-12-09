@@ -61,9 +61,9 @@ public class PanelController : MonoBehaviour
     public void HidePanels()
     {
        for(int i = 0; i < rectTransforms.Length; i++)
-        {
+       {
             RightHidePosition(rectTransforms[i]);
-        }
+       }
         RightHidePosition(buttonPanel);
     }
     public void ShowPanels()

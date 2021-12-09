@@ -13,24 +13,55 @@ public class Gamemaster : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         Instance = this;
-        SaveSystem.Delete_Save();
-        if (SaveSystem.LoadGame() != null)
+        if (SaveSystem.SaveExists())
         {
             SavedGame = SaveSystem.LoadGame();
+            CurrentScene = SavedGame.LastScene;
+            PlayerGender = PlayerGenderFromString(SavedGame.PlayerGender);
+            Inventory.LoadInventory();
+            SceneNavigation.LoadAvailableScenes();
+            SetPortraitSprite();
+            Debug.Log(CurrentScene);
+        }       
+    }
+
+  
+
+    public static void NewGame()
+    {
+
+        SaveSystem.Delete_Save();
+        Inventory.NewGame();
+        SceneNavigation.NewGame();
+        SaveSystem.Save();
+        SavedGame.SavePlayerGender(PlayerGender);
+    }
+
+    private PlayerGender PlayerGenderFromString(string playergender)
+    {
+        if (playergender == "Male")
+        {
+            return PlayerGender.Male;
         }
         else
         {
-            SaveSystem.Save();
+            return PlayerGender.Female;
         }
     }
 
-    private void Start()
+    private void SetPortraitSprite()
     {
-        Inventory.LoadInventory();
-        SceneNavigation.LoadAvailableScenes();
-        CurrentScene = SavedGame.CurrentScene;
+        if (PlayerGender == PlayerGender.Male)
+        {
+            Gamemaster.PlayerGender = PlayerGender.Male;
+            Gamemaster.PlayerPortraitSprite = Resources.Load<Sprite>("MalePortrait");
+        }
+        else
+        {
+            Gamemaster.PlayerGender = PlayerGender.Female;
+            Gamemaster.PlayerPortraitSprite = Resources.Load<Sprite>("FemalePortrait");
+        }
     }
-
 }
 [System.Serializable]
 public enum PlayerGender { Male,Female}

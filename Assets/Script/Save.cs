@@ -7,7 +7,6 @@ public static class SaveSystem
 {
     public static void Save()
     {
-
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/GameSave";
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -21,12 +20,15 @@ public static class SaveSystem
         {
             savedGame = Gamemaster.SavedGame;
         }
+
+        Debug.Log(savedGame.LastScene);
         binaryFormatter.Serialize(stream, savedGame);
         stream.Close();
     }
 
     public static SavedGame LoadGame()
     {
+
         string path = Application.persistentDataPath + "/GameSave";
         if (File.Exists(path))
         {
@@ -42,9 +44,23 @@ public static class SaveSystem
         }
     }
 
+    public static bool SaveExists()
+    {
+        string path = Application.persistentDataPath + "/GameSave";
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public static void Delete_Save()
     {
         string path = Application.persistentDataPath + "/GameSave";
         File.Delete(path);
+        Gamemaster.SavedGame = null;
     }
 }
