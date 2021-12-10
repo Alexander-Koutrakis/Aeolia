@@ -276,6 +276,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03B4\u03B9\u03B1 \u03C7\u03B1\u03C1\u03B1\u03BA\u03C4\u03AE\u03C1\u03C9\u03BD-\u0391\u0395\u039F\u039B\u0399\u0391_4"
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 2447
+        width: 606
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6852c2f0c82dca530800000000000000
+      internalID: 3867697678996219270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

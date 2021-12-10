@@ -73,13 +73,17 @@ public class ItemContainer : MonoBehaviour
         {
             if (item.ItemType == ItemType.ContainerItem)
             {
+                Inventory.RemoveItem(Inventory.ItemHolding);
+                Inventory.Instance.RemoveHoldingItem();
                 Focus.Instance.FocusItem(item.ContainedItem);
                 Inventory.Instance.TakeItem(item.ContainedItem);
-                Inventory.Instance.RemoveItem(item);
+                Inventory.RemoveItem(item);
                 gameObject.SetActive(false);
             }
             else if(item.ItemType == ItemType.EnviromentLocked)
             {
+                Inventory.RemoveItem(Inventory.ItemHolding);
+                Inventory.Instance.RemoveHoldingItem();
                 EnviromentalUnlock();
             }       
         }

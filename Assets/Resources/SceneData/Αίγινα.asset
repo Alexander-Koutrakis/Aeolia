@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: "\u0391\u03AF\u03B3\u03B9\u03BD\u03B1"
   m_EditorClassIdentifier: 
   SceneName: "\u0391\u03AF\u03B3\u03B9\u03BD\u03B1"
-  SceneSprite: {fileID: 0}
+  SceneSprite: {fileID: 21300000, guid: 70d5e354523c65141be747ec91f9fb7a, type: 3}
+  SceneLoaderName: Aigina

@@ -61,7 +61,13 @@ public class Inventory:MonoBehaviour
         holdingItemImage.preserveAspect = true;
     }
 
-   public void RemoveItem(Item item)
+   public void RemoveHoldingItem()
+    {
+        itemHolding = null;
+        itemHoldingImageBackground.gameObject.SetActive(false);
+    }
+
+   public static void RemoveItem(Item item)
     {
         inventoryItems.Remove(item);
     }
@@ -78,9 +84,22 @@ public class Inventory:MonoBehaviour
         inventoryItems.Clear();
         for(int i = 0; i < itemNames.Length; i++)
         {
+            Debug.Log("Load item "+itemNames[i]);
             Item savedItem = Instantiate(Resources.Load<Item>("Items/" + itemNames[i]));
             inventoryItems.Add(savedItem);
         }
+    }
+
+    public static bool InventoryContains(string itemName)
+    {
+        for(int i = 0; i < inventoryItems.Count; i++)
+        {
+            if (inventoryItems[i].Name == itemName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void NewGame()

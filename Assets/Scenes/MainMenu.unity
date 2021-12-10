@@ -5262,6 +5262,7 @@ MonoBehaviour:
   - {fileID: 78904907}
   - {fileID: 2063465531}
   femaleIntro: {fileID: 21300000, guid: 3be04e4dc09953f4782236789fee124c, type: 3}
+  maleIntro: {fileID: 21300000, guid: 2d239b7cfb5ccb947b607e8ebb5a301f, type: 3}
   continueButton: {fileID: 1375579706}
 --- !u!114 &352870742247652439
 MonoBehaviour:

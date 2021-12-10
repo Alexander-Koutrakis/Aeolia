@@ -9,7 +9,7 @@ public class ContainerController : MonoBehaviour
     {
         foreach(ItemContainer itemContainer in GetComponentsInChildren<ItemContainer>(true))
         {
-            if (Inventory.InventoryItems.Contains(itemContainer.Item))
+            if (Inventory.InventoryContains(itemContainer.Item.Name))
             {
                 itemContainer.gameObject.SetActive(true);
             }

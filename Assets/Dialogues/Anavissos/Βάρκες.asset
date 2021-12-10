@@ -84,4 +84,5 @@ MonoBehaviour:
       \u03C0\u03B9\u03B1 \u03C3\u03C4\u03BF \u03C0\u03B1\u03BB\u03B9\u03BA\u03AC\u03C1\u03B9
       \u03C0\u03B1\u03C1\u03AC \u03BD\u03B1 \u03BE\u03B5\u03BD\u03B9\u03C4\u03B5\u03C5\u03C4\u03B5\u03AF
       \u03C0\u03AC\u03BB\u03B9."
-  ScenesToUnlock: []
+  ScenesToUnlock:
+  - {fileID: 11400000, guid: c36a2577479d65a428628a6173bcfed2, type: 2}

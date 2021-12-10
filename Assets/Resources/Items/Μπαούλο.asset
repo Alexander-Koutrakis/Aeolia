@@ -16,4 +16,4 @@ MonoBehaviour:
   HoldingSprite: {fileID: 0}
   Name: "\u039C\u03C0\u03B1\u03BF\u03CD\u03BB\u03BF"
   ItemType: 1
-  ContainedItem: {fileID: 0}
+  ContainedItem: {fileID: 11400000, guid: d40fc15a84decb7478cd26320d0cb3b2, type: 2}

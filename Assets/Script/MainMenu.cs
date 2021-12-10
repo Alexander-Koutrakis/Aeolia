@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-   [SerializeField] private GameObject[] panels;
+    [SerializeField] private GameObject[] panels;
     [SerializeField] private Sprite femaleIntro;
+    [SerializeField] private Sprite maleIntro;
     [SerializeField] private Button continueButton;
     private void Start()
     {
@@ -45,8 +46,13 @@ public class MainMenu : MonoBehaviour
             if (panels[i].name == "Intro")
             {
                 if (playerGender == "Female")
+                {
                     panels[i].GetComponent<Image>().sprite = femaleIntro;
-
+                }
+                else if(playerGender=="Male")
+                {
+                    panels[i].GetComponent<Image>().sprite = maleIntro;
+                }
                 break;
             }
         }
