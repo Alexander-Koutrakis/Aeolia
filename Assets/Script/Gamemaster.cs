@@ -20,8 +20,8 @@ public class Gamemaster : MonoBehaviour
             PlayerGender = PlayerGenderFromString(SavedGame.PlayerGender);
             Inventory.LoadInventory();
             SceneNavigation.LoadAvailableScenes();
+            RecordingsController.LoadRecordings();
             SetPortraitSprite();
-            Debug.Log(CurrentScene);
         }       
     }
 
@@ -29,7 +29,6 @@ public class Gamemaster : MonoBehaviour
 
     public static void NewGame()
     {
-
         SaveSystem.Delete_Save();
         Inventory.NewGame();
         SceneNavigation.NewGame();
@@ -60,6 +59,19 @@ public class Gamemaster : MonoBehaviour
         {
             Gamemaster.PlayerGender = PlayerGender.Female;
             Gamemaster.PlayerPortraitSprite = Resources.Load<Sprite>("FemalePortrait");
+        }
+    }
+
+    public Sprite PlayerPortrait()
+    {
+        if (PlayerGender == PlayerGender.Male)
+        {
+            
+            return Resources.Load<Sprite>("MalePortrait");
+        }
+        else
+        {
+            return Resources.Load<Sprite>("FemalePortrait");
         }
     }
 }

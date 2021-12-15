@@ -832,8 +832,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161607830722130354, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_text
-      value: "\u039A\u03B9\u03BC\u03B9\u03BD\u03C4\u03AD\u03BD\u03B9\u03B1 - \u0393\u03AD\u03C1\u03BF\u03BD\u03C4\u03B1\u03C2
-        \u0393\u03B5\u03C9\u03C1\u03B3\u03CC\u03C2"
+      value: "\u0395\u03B8\u03BD\u03B9\u03BA\u03CC \u0398\u03AD\u03B1\u03C4\u03C1\u03BF
+        -\u0394\u03C1\u03B1\u03BC\u03B1\u03C4\u03BF\u03BB\u03CC\u03B3\u03BF\u03C2"
       objectReference: {fileID: 0}
     - target: {fileID: 4590293341423021752, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_AnchorMax.y
@@ -989,8 +989,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460883776035641176, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_text
-      value: "\u039A\u03B9\u03BC\u03B9\u03BD\u03C4\u03AD\u03BD\u03B9\u03B1 - \u0393\u03AD\u03C1\u03BF\u03BD\u03C4\u03B1\u03C2
-        \u0393\u03B5\u03C9\u03C1\u03B3\u03CC\u03C2"
+      value: "\u0395\u03B8\u03BD\u03B9\u03BA\u03CC \u0398\u03AD\u03B1\u03C4\u03C1\u03BF
+        -\u0394\u03C1\u03B1\u03BC\u03B1\u03C4\u03BF\u03BB\u03CC\u03B3\u03BF\u03C2"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}

@@ -9,7 +9,7 @@ public class Inventory:MonoBehaviour
     private static List<Item> inventoryItems=new List<Item>();
     public static List<Item> InventoryItems { get { return inventoryItems; } }
     private static Item itemHolding;
-    public static Item ItemHolding { get { return itemHolding; } }
+    public static Item ItemHolding { get { return itemHolding; }set { itemHolding = value; } }
     [SerializeField] private GameObject itemButtonPrefab;
     private GridLayoutGroup gridLayoutGroup;
     public static Inventory Instance;
@@ -74,7 +74,16 @@ public class Inventory:MonoBehaviour
     
     public static void SaveInventory()
     {
-        Gamemaster.SavedGame.SaveInventory(inventoryItems);
+        string itemHoldingName;
+        if (itemHolding != null)
+        {
+            itemHoldingName = itemHolding.Name;
+        }
+        else
+        {
+            itemHoldingName = "None";
+        }
+        Gamemaster.SavedGame.SaveInventory(inventoryItems, itemHoldingName);
     }
 
     public static void LoadInventory()
@@ -84,10 +93,10 @@ public class Inventory:MonoBehaviour
         inventoryItems.Clear();
         for(int i = 0; i < itemNames.Length; i++)
         {
-            Debug.Log("Load item "+itemNames[i]);
             Item savedItem = Instantiate(Resources.Load<Item>("Items/" + itemNames[i]));
             inventoryItems.Add(savedItem);
         }
+        
     }
 
     public static bool InventoryContains(string itemName)

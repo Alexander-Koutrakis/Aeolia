@@ -21,7 +21,7 @@ public static class SaveSystem
             savedGame = Gamemaster.SavedGame;
         }
 
-        Debug.Log(savedGame.LastScene);
+
         binaryFormatter.Serialize(stream, savedGame);
         stream.Close();
     }

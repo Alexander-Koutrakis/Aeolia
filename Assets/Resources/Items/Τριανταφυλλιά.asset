@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8d9de7f62c05409a2a24009c4824c, type: 3}
   m_Name: "\u03A4\u03C1\u03B9\u03B1\u03BD\u03C4\u03B1\u03C6\u03C5\u03BB\u03BB\u03B9\u03AC"
   m_EditorClassIdentifier: 
-  FocusSprite: {fileID: 0}
+  FocusSprite: {fileID: -208702888946859129, guid: 40529e71db794ba4cae0544a6ac60bfd, type: 3}
   HoldingSprite: {fileID: 0}
   Name: "\u03A4\u03C1\u03B9\u03B1\u03BD\u03C4\u03B1\u03C6\u03C5\u03BB\u03BB\u03B9\u03AC"
   ItemType: 2

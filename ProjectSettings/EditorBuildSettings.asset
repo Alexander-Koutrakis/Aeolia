@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Aigina.unity
     guid: cc72dcb54403c4f439c7eda00e200596
+  - enabled: 1
+    path: Assets/Scenes/Anavissos.unity
+    guid: 5740c9523a5ccdf48ac185060779b900
+  - enabled: 1
+    path: Assets/Scenes/Acadimia.unity
+    guid: 0de73f4dbb96e204e977cd32978bc2d8
   m_configObjects: {}

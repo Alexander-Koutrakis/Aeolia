@@ -347,9 +347,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428050382485399197, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 358.9705
+      objectReference: {fileID: 0}
     - target: {fileID: 3446035560173146975, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_Name
       value: Canvases
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130177618491252402, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 358.9705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161607830722130354, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
+      propertyPath: m_text
+      value: "\u039C\u03CC\u03BB\u03C5\u03B2\u03BF\u03C2 - \u0398\u03B1\u03BC\u03CE\u03BD\u03B1\u03C2"
       objectReference: {fileID: 0}
     - target: {fileID: 4611772395034757528, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -454,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 7645628541369639270, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460883776035641176, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}
+      propertyPath: m_text
+      value: "\u039C\u03CC\u03BB\u03C5\u03B2\u03BF\u03C2 - \u0398\u03B1\u03BC\u03CE\u03BD\u03B1\u03C2"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52869f35f31b8d74dae0def4b70a8c88, type: 3}

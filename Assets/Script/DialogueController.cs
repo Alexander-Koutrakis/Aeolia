@@ -17,7 +17,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Dialogue repeatSceneDialogue;
     public delegate void OnDialogueEnd();
     public OnDialogueEnd DialogueEnd;
-
+    public static bool ShowingDialogue;
     public void Awake()
     {
         Instance = this;
@@ -28,10 +28,19 @@ public class DialogueController : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        ShowingDialogue = true;
         dialogueIndex = 0;
         this.dialogue = dialogue;
         dialoguePanel.SetActive(true);
         NextSentence();
+        if (PanelController.Instance != null)
+        {
+            PanelController.Instance.HidePanels();
+        }
+        if (dialogue.Record)
+        {
+            RecordingsController.RecordDialogue(dialogue);
+        }
     }
 
     public void ShowDialogueSentence(DialogueSentence dialogueSentence)
@@ -63,6 +72,7 @@ public class DialogueController : MonoBehaviour
 
     private void EndDialogue()
     {
+        ShowingDialogue = false;
         if (DialogueEnd != null)
         {
             DialogueEnd();

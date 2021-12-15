@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class YellowRoom : EnviromentalItem
@@ -20,8 +19,7 @@ public class YellowRoom : EnviromentalItem
         if (DoorOpen != null)
         {
             DoorOpen.SetActive(true);
-        }
-        
+        }      
         gameObject.SetActive(false);
     }
 }

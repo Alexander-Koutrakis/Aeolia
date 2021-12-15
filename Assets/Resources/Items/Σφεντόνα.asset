@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u03A3\u03C6\u03B5\u03BD\u03C4\u03CC\u03BD\u03B1"
   m_EditorClassIdentifier: 
   FocusSprite: {fileID: 6673233131444725564, guid: eb7ac5d64e98873458a81e347393734e, type: 3}
-  HoldingSprite: {fileID: 3667166353759356088, guid: eb7ac5d64e98873458a81e347393734e, type: 3}
+  HoldingSprite: {fileID: -8191589362949503875, guid: eb7ac5d64e98873458a81e347393734e, type: 3}
   Name: "\u03A3\u03C6\u03B5\u03BD\u03C4\u03CC\u03BD\u03B1"
   ItemType: 0
   ContainedItem: {fileID: 0}

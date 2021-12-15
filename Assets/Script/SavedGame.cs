@@ -9,9 +9,13 @@ public class SavedGame
     public string PlayerGender { get { return this.playerGender; } }
     private string lastScene;
     public string LastScene { get { return this.lastScene;} }
+
+    public string HoldingItem;
     private SceneSave[] sceneSaves=new SceneSave[0];
     private string[] itemNames = new string[0];
     private string[] availableScenes = new string[0];
+    private string[] recoredDialogues = new string[0];
+
     public SceneSave LoadSceneSave(string sceneName)
     {
         for(int i = 0; i < sceneSaves.Length; i++)
@@ -60,13 +64,14 @@ public class SavedGame
             }
         }
     }
-    public void SaveInventory(List<Item> items)
+    public void SaveInventory(List<Item> items,string holdingItemName)
     {
         itemNames = new string[items.Count];
         for(int i = 0; i < itemNames.Length; i++)
         {
             itemNames[i] = items[i].Name;
         }
+        HoldingItem = holdingItemName;
     }
     public string[] LoadItems()
     {
@@ -76,9 +81,23 @@ public class SavedGame
     {
         availableScenes = scenes;
     }
+   
+    public void SaveRecordings(List<Dialogue> dialogues)
+    {
+        recoredDialogues =new string[dialogues.Count];
+        for(int i = 0; i < dialogues.Count; i++)
+        {
+            recoredDialogues[i] = dialogues[i].name;
+        }
+    }
     public string[] LoadAvailableScenes()
     {
         return availableScenes;
+    }
+
+    public string[] LoadRecordedDialogues()
+    {
+        return recoredDialogues;
     }
 
    public void SaveLastScene(string lastScene)

@@ -15,5 +15,5 @@ MonoBehaviour:
   FocusSprite: {fileID: 0}
   HoldingSprite: {fileID: 0}
   Name: "\u03A4\u03AC\u03C6\u03BF\u03C2"
-  ItemType: 0
+  ItemType: 3
   ContainedItem: {fileID: 0}

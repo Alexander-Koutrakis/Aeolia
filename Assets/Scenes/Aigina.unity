@@ -1011,9 +1011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ca1e0b71de1904c868a20e29262f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1b564ab7f0f6a114d8f2298fee5fbae8, type: 2}
+  item: {fileID: 11400000, guid: c80444c3f19ec1441bc5d40d18c7b694, type: 2}
   key: {fileID: 0}
-  focusDialogue: {fileID: 11400000, guid: 05b6020755c6eb84a8e91f750046ddbd, type: 2}
+  focusDialogue: {fileID: 11400000, guid: ec897f0f28968754d945dfb5ca10b73d, type: 2}
   playerAction: 2
   UsedItem: 0
 --- !u!114 &1769378584

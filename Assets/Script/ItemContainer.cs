@@ -15,6 +15,11 @@ public class ItemContainer : MonoBehaviour
     public EnviromentalUnlockAction EnviromentalUnlock;
     public void Interact()
     {
+        if (DialogueController.ShowingDialogue)
+        {
+            return;
+        }
+
         switch (playerAction) {
             case Action.Look:
                 Look();
@@ -31,14 +36,14 @@ public class ItemContainer : MonoBehaviour
             default:
                 break;
         }
-        UsedItem = true;
+        
     }
 
     private void Look()
     {
 
         Focus.Instance.FocusItem(item);
-
+        
         if (focusDialogue != null)
         {
             if (!UsedItem)
@@ -50,6 +55,7 @@ public class ItemContainer : MonoBehaviour
                 DialogueController.Instance.StartRepeatItemDialogue();
             }
         }
+        UsedItem = true;
     }
 
     private void Take()
@@ -61,11 +67,17 @@ public class ItemContainer : MonoBehaviour
         }
         Inventory.Instance.TakeItem(item);
         gameObject.SetActive(false);
+        UsedItem = true;
     }
 
     private void TryToOpen()
     {
-        if (Inventory.ItemHolding != key|| Inventory.ItemHolding==null)
+
+        if (Inventory.ItemHolding == null)
+        {
+            DialogueController.Instance.StartLockedDialogue();
+        }
+        else if (Inventory.ItemHolding.Name != key.Name)
         {
             DialogueController.Instance.StartLockedDialogue();
         }
@@ -79,12 +91,15 @@ public class ItemContainer : MonoBehaviour
                 Inventory.Instance.TakeItem(item.ContainedItem);
                 Inventory.RemoveItem(item);
                 gameObject.SetActive(false);
+                Inventory.ItemHolding = null;
+                UsedItem = true;
             }
             else if(item.ItemType == ItemType.EnviromentLocked)
             {
                 Inventory.RemoveItem(Inventory.ItemHolding);
                 Inventory.Instance.RemoveHoldingItem();
                 EnviromentalUnlock();
+                UsedItem = true;
             }       
         }
     }

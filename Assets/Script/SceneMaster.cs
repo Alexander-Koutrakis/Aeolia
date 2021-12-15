@@ -37,22 +37,18 @@ public class SceneMaster : MonoBehaviour
             }
         }
 
-        
-        Debug.Log(Gamemaster.SavedGame.PlayerGender);
+       
     }
-
-
-
     private void OnDisable()
     {
         SaveScene();
     }
-
     private void SaveScene()
     {
         SceneSave sceneSave = new SceneSave(sceneName, sceneVisited, ItemSaves());
         Gamemaster.SavedGame.SaveScene(sceneSave);
         Gamemaster.SavedGame.SaveLastScene(SceneManager.GetActiveScene().name);
+        Gamemaster.SavedGame.SaveRecordings(RecordingsController.RecordedDialogues);
         Inventory.SaveInventory();
         SceneNavigation.SaveAvailableScenes();
         SaveSystem.Save();

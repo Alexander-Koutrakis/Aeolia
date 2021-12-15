@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8d9de7f62c05409a2a24009c4824c, type: 3}
   m_Name: "\u039A\u03B1\u03C1\u03CD\u03B4\u03B9"
   m_EditorClassIdentifier: 
-  FocusSprite: {fileID: 0}
-  HoldingSprite: {fileID: 0}
+  FocusSprite: {fileID: 21300000, guid: e65a9e524f330b74ba7ad36dda80abc4, type: 3}
+  HoldingSprite: {fileID: 4555315921693049062, guid: 9663a76acb0751f44876b83f3fe6cb65, type: 3}
   Name: "\u039A\u03B1\u03C1\u03CD\u03B4\u03B9"
   ItemType: 0
   ContainedItem: {fileID: 0}

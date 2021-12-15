@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Dialogue : ScriptableObject
 {
+    public string DialogueTitle;
+    public Sprite DialogueSprite;
     public DialogueSentence[] Sentences;
     public SceneData[] ScenesToUnlock;
+    public bool Record;
 }
 
 [System.Serializable]
